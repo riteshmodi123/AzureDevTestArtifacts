@@ -1,0 +1,26 @@
+﻿{
+    "$schema": "https://raw.githubusercontent.com/Azure/azure-devtestlab/master/schemas/2015-01-01/dtlArtifacts.json",
+    "title": "CreateDomain",
+    "description": "Creates a domain",
+    "tags": [
+        "Windows",
+        "CreateDomain"
+    ],
+    "iconUri": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/80/Atom_editor_logo.svg/1118px-Atom_editor_logo.svg.png",
+    "targetOsType": "Windows",
+    "parameters": {
+        "password": {
+            "type": "securestring",
+            "displayName": "password required",
+            "description": "Password when in need"
+        },
+        "domain": {
+            "type": "securestring",
+            "displayName": "domain name",
+            "description": "name of domain"
+        }
+    },
+    "runCommand": {
+        "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass -File CreateDomain.ps1  -password ',  parameters('password'), ' -domain ', parameters('domain'))]"
+    }
+}
